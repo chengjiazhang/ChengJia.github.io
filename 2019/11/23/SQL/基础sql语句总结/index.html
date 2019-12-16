@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="MVC," />
+  <meta name="keywords" content="SQL," />
 
 
 
@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="MVC原理四大组件DispatcherServlet：作为前端控制器，整个流程控制的中心，控制其它组件执行，统一调度，降低组件之间的耦合性，提高每个组件的扩展性。HandlerMapping：通过扩展处理器映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。HandlerAdapter：通过扩展处理器适配器，支持更多类型的处理器。ViewResolver：通过扩展视图解析器，支">
-<meta name="keywords" content="MVC">
+<meta name="description" content="SELECT语句12SELECT column_name,column_nameFROM table_name; 查询同表不同列的值 1SELECT * FROM table_name;  查询同表全列的数据 SELECT DISTINCT（去除重复数据）12SELECT DISTINCT column_name,column_nameFROM table_name 去除不同列重复的数据 ORDE">
+<meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringMVC原理">
-<meta property="og:url" content="http:&#x2F;&#x2F;zcjnet.com&#x2F;2019&#x2F;11&#x2F;20&#x2F;Spring&#x2F;springmvc&#x2F;index.html">
+<meta property="og:title" content="基础SQL语句总结">
+<meta property="og:url" content="http:&#x2F;&#x2F;zcjnet.com&#x2F;2019&#x2F;11&#x2F;23&#x2F;SQL&#x2F;%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E5%8F%A5%E6%80%BB%E7%BB%93&#x2F;index.html">
 <meta property="og:site_name" content="I Have A Dream">
-<meta property="og:description" content="MVC原理四大组件DispatcherServlet：作为前端控制器，整个流程控制的中心，控制其它组件执行，统一调度，降低组件之间的耦合性，提高每个组件的扩展性。HandlerMapping：通过扩展处理器映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。HandlerAdapter：通过扩展处理器适配器，支持更多类型的处理器。ViewResolver：通过扩展视图解析器，支">
+<meta property="og:description" content="SELECT语句12SELECT column_name,column_nameFROM table_name; 查询同表不同列的值 1SELECT * FROM table_name;  查询同表全列的数据 SELECT DISTINCT（去除重复数据）12SELECT DISTINCT column_name,column_nameFROM table_name 去除不同列重复的数据 ORDE">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-23T02:38:56.000Z">
+<meta property="og:updated_time" content="2019-11-23T06:11:13.000Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://zcjnet.com/2019/11/20/Spring/springmvc/"/>
+  <link rel="canonical" href="http://zcjnet.com/2019/11/23/SQL/基础sql语句总结/"/>
 
 
 
 
 
-  <title>SpringMVC原理 | I Have A Dream</title>
+  <title>基础SQL语句总结 | I Have A Dream</title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zcjnet.com/2019/11/20/Spring/springmvc/">
+    <link itemprop="mainEntityOfPage" href="http://zcjnet.com/2019/11/23/SQL/%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E5%8F%A5%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cheng">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SpringMVC原理</h1>
+          <h1 class="post-title" itemprop="name headline">基础SQL语句总结</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-20T16:30:33+08:00">
-                2019-11-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-23T14:01:30+08:00">
+                2019-11-23
               </time>
             
 
@@ -313,8 +313,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring</span>
+                  <a href="/categories/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
                   </a>
                 </span>
 
@@ -350,7 +350,25 @@
       
 
       
-        <h1 id="MVC原理"><a href="#MVC原理" class="headerlink" title="MVC原理"></a>MVC原理</h1><h2 id="四大组件"><a href="#四大组件" class="headerlink" title="四大组件"></a>四大组件</h2><h4 id="DispatcherServlet：作为前端控制器，整个流程控制的中心，控制其它组件执行，统一调度，降低组件之间的耦合性，提高每个组件的扩展性。"><a href="#DispatcherServlet：作为前端控制器，整个流程控制的中心，控制其它组件执行，统一调度，降低组件之间的耦合性，提高每个组件的扩展性。" class="headerlink" title="DispatcherServlet：作为前端控制器，整个流程控制的中心，控制其它组件执行，统一调度，降低组件之间的耦合性，提高每个组件的扩展性。"></a>DispatcherServlet：作为前端控制器，整个流程控制的中心，控制其它组件执行，统一调度，降低组件之间的耦合性，提高每个组件的扩展性。</h4><h4 id="HandlerMapping：通过扩展处理器映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。"><a href="#HandlerMapping：通过扩展处理器映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。" class="headerlink" title="HandlerMapping：通过扩展处理器映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。"></a>HandlerMapping：通过扩展处理器映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。</h4><h4 id="HandlerAdapter：通过扩展处理器适配器，支持更多类型的处理器。"><a href="#HandlerAdapter：通过扩展处理器适配器，支持更多类型的处理器。" class="headerlink" title="HandlerAdapter：通过扩展处理器适配器，支持更多类型的处理器。"></a>HandlerAdapter：通过扩展处理器适配器，支持更多类型的处理器。</h4><h4 id="ViewResolver：通过扩展视图解析器，支持更多类型的视图解析，例如：jsp、freemarker、pdf、excel等。"><a href="#ViewResolver：通过扩展视图解析器，支持更多类型的视图解析，例如：jsp、freemarker、pdf、excel等。" class="headerlink" title="ViewResolver：通过扩展视图解析器，支持更多类型的视图解析，例如：jsp、freemarker、pdf、excel等。"></a>ViewResolver：通过扩展视图解析器，支持更多类型的视图解析，例如：jsp、freemarker、pdf、excel等。</h4><h2 id="三次交互"><a href="#三次交互" class="headerlink" title="三次交互"></a>三次交互</h2><h4 id="（1）-先发送请求给前端控制器DispatcherServlet，DispatcherServlet调用HandlerMapping处理映射器，找到对应的处理器生成的对象和拦截器，返还给DispatcherServlet"><a href="#（1）-先发送请求给前端控制器DispatcherServlet，DispatcherServlet调用HandlerMapping处理映射器，找到对应的处理器生成的对象和拦截器，返还给DispatcherServlet" class="headerlink" title="（1） 先发送请求给前端控制器DispatcherServlet，DispatcherServlet调用HandlerMapping处理映射器，找到对应的处理器生成的对象和拦截器，返还给DispatcherServlet."></a>（1） 先发送请求给前端控制器DispatcherServlet，DispatcherServlet调用HandlerMapping处理映射器，找到对应的处理器生成的对象和拦截器，返还给DispatcherServlet.</h4><h4 id="（2）-DispatcherServlet调用HandlerAdapter，经过适配调用适合的Controller，Controller处理完返回ModelAndView，HandlerAdapter将执行结果返还给前端控制器。"><a href="#（2）-DispatcherServlet调用HandlerAdapter，经过适配调用适合的Controller，Controller处理完返回ModelAndView，HandlerAdapter将执行结果返还给前端控制器。" class="headerlink" title="（2） DispatcherServlet调用HandlerAdapter，经过适配调用适合的Controller，Controller处理完返回ModelAndView，HandlerAdapter将执行结果返还给前端控制器。"></a>（2） DispatcherServlet调用HandlerAdapter，经过适配调用适合的Controller，Controller处理完返回ModelAndView，HandlerAdapter将执行结果返还给前端控制器。</h4><h4 id="（3）-前端控制器将ModelAndView传给视图解析器ViewResolver-解析后返回具体的view给前端控制器。"><a href="#（3）-前端控制器将ModelAndView传给视图解析器ViewResolver-解析后返回具体的view给前端控制器。" class="headerlink" title="（3） 前端控制器将ModelAndView传给视图解析器ViewResolver,解析后返回具体的view给前端控制器。"></a>（3） 前端控制器将ModelAndView传给视图解析器ViewResolver,解析后返回具体的view给前端控制器。</h4><h4 id="（4）前端控制器根据view进行视图渲染"><a href="#（4）前端控制器根据view进行视图渲染" class="headerlink" title="（4）前端控制器根据view进行视图渲染"></a>（4）前端控制器根据view进行视图渲染</h4><h4 id="（5）-前端控制器响应用户。"><a href="#（5）-前端控制器响应用户。" class="headerlink" title="（5） 前端控制器响应用户。"></a>（5） 前端控制器响应用户。</h4>
+        <h1 id="SELECT语句"><a href="#SELECT语句" class="headerlink" title="SELECT语句"></a>SELECT语句</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+<p><strong><em>查询同表不同列的值</em></strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>查询同表全列的数据</em></strong></p>
+<h4 id="SELECT-DISTINCT（去除重复数据）"><a href="#SELECT-DISTINCT（去除重复数据）" class="headerlink" title="SELECT DISTINCT（去除重复数据）"></a>SELECT DISTINCT（去除重复数据）</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+<p><strong><em>去除不同列重复的数据</em></strong></p>
+<h4 id="ORDER-BY-对结果集进行排序"><a href="#ORDER-BY-对结果集进行排序" class="headerlink" title="ORDER BY(对结果集进行排序)"></a>ORDER BY(对结果集进行排序)</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column_name,column_name <span class="keyword">ASC</span>|<span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<p><strong><em>ASC(默认升序)，DESC（降序）</em></strong></p>
+<p><strong><em>ASC或者 DESC 只对它紧跟着的第一个列名有效，其他不受影响，仍然是默认的升序。</em></strong></p>
+<h1 id="WHERE-过滤记录"><a href="#WHERE-过滤记录" class="headerlink" title="WHERE(过滤记录)"></a>WHERE(过滤记录)</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_name <span class="keyword">operator</span> <span class="keyword">value</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="INSERT-INTO-插入数据"><a href="#INSERT-INTO-插入数据" class="headerlink" title="INSERT INTO (插入数据)"></a>INSERT INTO (插入数据)</h1><h4 id="（1）-全表插入数据"><a href="#（1）-全表插入数据" class="headerlink" title="（1） 全表插入数据"></a>（1） 全表插入数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name</span><br><span class="line"><span class="keyword">VALUES</span> (value1,value2,value3,...);</span><br></pre></td></tr></table></figure>
+<h4 id="（2）按列插入数据"><a href="#（2）按列插入数据" class="headerlink" title="（2）按列插入数据"></a>（2）按列插入数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name (column1,column2,column3,...)</span><br><span class="line"><span class="keyword">VALUES</span> (value1,value2,value3,...);</span><br></pre></td></tr></table></figure>
+<h1 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name</span><br><span class="line"><span class="keyword">SET</span> column1=value1,column2=value2,...</span><br><span class="line"><span class="keyword">WHERE</span> some_column=some_value;</span><br></pre></td></tr></table></figure>
+<p><strong><em>更新表已经存在的记录</em></strong></p>
+<p><strong><em>必须携带where语句</em></strong></p>
+<h1 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> some_column=some_value;</span><br></pre></td></tr></table></figure>
+<p><strong><em>删除表中的记录（行）</em></strong></p>
+
       
     </div>
     
@@ -367,7 +385,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MVC/" rel="tag"># MVC</a>
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
           
         </div>
       
@@ -380,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/20/MyBatis/mybatisbasic/" rel="next" title="MyBatis 入门配置">
-                <i class="fa fa-chevron-left"></i> MyBatis 入门配置
+              <a href="/2019/11/20/Spring/springmvc/" rel="next" title="SpringMVC原理">
+                <i class="fa fa-chevron-left"></i> SpringMVC原理
               </a>
             
           </div>
@@ -389,10 +407,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/23/SQL/%E5%9F%BA%E7%A1%80sql%E8%AF%AD%E5%8F%A5%E6%80%BB%E7%BB%93/" rel="prev" title="基础SQL语句总结">
-                基础SQL语句总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -524,7 +538,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MVC原理"><span class="nav-number">1.</span> <span class="nav-text">MVC原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#四大组件"><span class="nav-number">1.1.</span> <span class="nav-text">四大组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DispatcherServlet：作为前端控制器，整个流程控制的中心，控制其它组件执行，统一调度，降低组件之间的耦合性，提高每个组件的扩展性。"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">DispatcherServlet：作为前端控制器，整个流程控制的中心，控制其它组件执行，统一调度，降低组件之间的耦合性，提高每个组件的扩展性。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HandlerMapping：通过扩展处理器映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">HandlerMapping：通过扩展处理器映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HandlerAdapter：通过扩展处理器适配器，支持更多类型的处理器。"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">HandlerAdapter：通过扩展处理器适配器，支持更多类型的处理器。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ViewResolver：通过扩展视图解析器，支持更多类型的视图解析，例如：jsp、freemarker、pdf、excel等。"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">ViewResolver：通过扩展视图解析器，支持更多类型的视图解析，例如：jsp、freemarker、pdf、excel等。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三次交互"><span class="nav-number">1.2.</span> <span class="nav-text">三次交互</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）-先发送请求给前端控制器DispatcherServlet，DispatcherServlet调用HandlerMapping处理映射器，找到对应的处理器生成的对象和拦截器，返还给DispatcherServlet"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">（1） 先发送请求给前端控制器DispatcherServlet，DispatcherServlet调用HandlerMapping处理映射器，找到对应的处理器生成的对象和拦截器，返还给DispatcherServlet.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）-DispatcherServlet调用HandlerAdapter，经过适配调用适合的Controller，Controller处理完返回ModelAndView，HandlerAdapter将执行结果返还给前端控制器。"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">（2） DispatcherServlet调用HandlerAdapter，经过适配调用适合的Controller，Controller处理完返回ModelAndView，HandlerAdapter将执行结果返还给前端控制器。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）-前端控制器将ModelAndView传给视图解析器ViewResolver-解析后返回具体的view给前端控制器。"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">（3） 前端控制器将ModelAndView传给视图解析器ViewResolver,解析后返回具体的view给前端控制器。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（4）前端控制器根据view进行视图渲染"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">（4）前端控制器根据view进行视图渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（5）-前端控制器响应用户。"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">（5） 前端控制器响应用户。</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SELECT语句"><span class="nav-number">1.</span> <span class="nav-text">SELECT语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SELECT-DISTINCT（去除重复数据）"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">SELECT DISTINCT（去除重复数据）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ORDER-BY-对结果集进行排序"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">ORDER BY(对结果集进行排序)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WHERE-过滤记录"><span class="nav-number">2.</span> <span class="nav-text">WHERE(过滤记录)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#INSERT-INTO-插入数据"><span class="nav-number">3.</span> <span class="nav-text">INSERT INTO (插入数据)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）-全表插入数据"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">（1） 全表插入数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）按列插入数据"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">（2）按列插入数据</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UPDATE"><span class="nav-number">4.</span> <span class="nav-text">UPDATE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DELETE"><span class="nav-number">5.</span> <span class="nav-text">DELETE</span></a></li></ol></div>
             
 
           </div>
